@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - College Event Portal</title>
+
+    <link rel="stylesheet" href="../css/login.css" />
+  </head>
+  <body>
+    <div class="login-container">
+      <div class="login-card">
+        <h1>Student Login</h1>
+        <p>Access your Event Portal Account</p>
+
+        <form id="loginForm">
+          <div class="input-group">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter Email" />
+          </div>
+
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" id="password" placeholder="Enter Password" />
+          </div>
+
+          <p id="errorMsg"></p>
+
+          <button type="submit" class="btn">Login</button>
+        </form>
+
+        <div class="buttons">
+          <a href="index.html" class="home-btn"> Back To Home </a>
+
+          <a href="register.html" class="register-btn"> Register </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/login.js"></script>
+  </body>
+</html>

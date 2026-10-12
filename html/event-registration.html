@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration</title>
+
+    <link rel="stylesheet" href="../css/registration.css" />
+  </head>
+  <body>
+    <div class="registration-container">
+      <div class="registration-card">
+        <h1>Event Registration</h1>
+
+        <h2 id="eventTitle">Selected Event</h2>
+
+        <form id="eventForm">
+          <div class="input-group">
+            <label>Student Name</label>
+            <input
+              type="text"
+              id="studentName"
+              placeholder="Enter Student Name"
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Roll Number</label>
+            <input
+              type="text"
+              id="rollNumber"
+              placeholder="Enter Roll Number"
+            />
+          </div>
+
+          <div class="input-group">
+            <label>Department</label>
+            <input type="text" id="department" placeholder="Enter Department" />
+          </div>
+
+          <div class="input-group">
+            <label>Year</label>
+            <select id="year">
+              <option value="">Select Year</option>
+              <option>1st Year</option>
+              <option>2nd Year</option>
+              <option>3rd Year</option>
+              <option>4th Year</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter Phone Number" />
+          </div>
+
+          <p id="message"></p>
+
+          <button type="submit" class="submit-btn">Submit Registration</button>
+        </form>
+
+        <a href="events.html" class="back-btn"> Back To Events </a>
+      </div>
+    </div>
+
+    <script>
+      const selectedEvent = localStorage.getItem("selectedEvent");
+
+      document.getElementById("eventTitle").innerText =
+        selectedEvent || "No Event Selected";
+
+      document
+        .getElementById("eventForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const studentName = document
+            .getElementById("studentName")
+            .value.trim();
+
+          const rollNumber = document.getElementById("rollNumber").value.trim();
+
+          const department = document.getElementById("department").value.trim();
+
+          const year = document.getElementById("year").value;
+
+          const phone = document.getElementById("phone").value.trim();
+
+          const message = document.getElementById("message");
+
+          if (
+            studentName === "" ||
+            rollNumber === "" ||
+            department === "" ||
+            year === "" ||
+            phone === ""
+          ) {
+            message.innerText = "Please fill all fields.";
+            return;
+          }
+
+          alert("Registration Submitted Successfully");
+
+          document.getElementById("eventForm").reset();
+
+          message.innerText = "";
+        });
+    </script>
+  </body>
+</html>
